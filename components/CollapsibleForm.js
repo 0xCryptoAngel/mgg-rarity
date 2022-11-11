@@ -3,19 +3,19 @@ import { FiChevronDown } from "react-icons/fi";
 
 const CollapsibleForm = (props) => {
   const { heading, element } = props;
-  const [collapsed, setCollapsed] = useState < boolean > false;
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <div className="flex flex-col">
       <div
-        className="flex py-3 border-y border-y-itemBorder cursor-pointer"
+        className="flex py-3 border-t border-b border-gray-500 cursor-pointer"
         onClick={() => setCollapsed(!collapsed)}
       >
         <span>{heading}</span>
         <FiChevronDown
           size={20}
-          className={`mt-[3px] ml-auto duration-150 ${
-            collapsed ? "-scale-y-100" : ""
+          className={`mt-1 ml-auto duration-150 ${
+            collapsed ? "" : "transform -rotate-90"
           }`}
         />
       </div>

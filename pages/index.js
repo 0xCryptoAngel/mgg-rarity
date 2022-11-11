@@ -63,7 +63,14 @@ function Home({ title, img, description, nfts, pages, filters }) {
           showMenu={showMenu}
           setShowMenu={setShowMenu}
         /> */}
-        <TestBar />
+        <div>
+          <TestBar 
+            all_traits={all_traits}
+            attr_count={attr_count}
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+           />
+        </div>
         <div className="flex flex-col w-full w-5xl px-4">
           {showMenu}
           <TraitFilters />
