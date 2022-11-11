@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { json2query } from "../util";
+import CollapsibleForm from "./CollapsibleForm";
 
 export const Filters = (props) => {
   const router = useRouter();
@@ -9,6 +10,7 @@ export const Filters = (props) => {
   const filters = Object.keys(allTraits);
 
   const handleChange = (trait) => {
+    console.log("trait", trait)
     props.setShowMenu(false);
     traits = traits ? traits : "";
     console.log(traits.length, "trait filters");
@@ -18,18 +20,29 @@ export const Filters = (props) => {
   };
 
   return (
-    <div className="max-w-sm w-full text-xs mt-4" onChange={handleChange}>
+    <div>
       {filters.map((filter, index) => (
         <div className="w-full flex flex-col px-2 mt-4">
-          <h2 className="text-gray-700 uppercase font-bold mb-2">{filter}</h2>
-          {Object.keys(allTraits[filter]).map((val) => (
-            <a
-              className={`bg-white cursor-pointer hover:bg-gray-300 hover:text-gray-900 rounded-md text-gray-700 py-2 px-1 flex`}
-              onClick={() => handleChange(val)}
-            >
-              {val} ({allTraits[filter][val]})
-            </a>
-          ))}
+          <CollapsibleForm
+            heading={filter}
+            element={
+              <div className="py-4 flex flex-col gap-2">
+                {Object.keys(allTraits[filter]).map((val, i) => (
+                  <div className="flex" >
+                    <input
+                      type="checkbox"
+                      onChange={() => handleChange(val)}
+                      id={`back${i}`}
+                    />
+                    <label for={`back${i}`} className="flex justify-between w-full pl-1">
+                      <div>{val}</div>
+                      <div>{allTraits[filter][val]}</div>
+                    </label>
+                  </div>
+                ))}
+              </div>
+            }
+          />
         </div>
       ))}
     </div>

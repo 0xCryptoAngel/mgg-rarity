@@ -16,15 +16,8 @@ export const TestBar = (props) => {
       <div className="flex flex-col gap-3">
         <div className="py-2">FILTERS</div>
         <Search {...router.query} setShowMenu={setShowMenu} />
-        {/* <div className="flex flex-col relative">
-          <BiSearch className="absolute left-2 top-2 text-xl"/>
-          <input type="text" id="search" className="bg-gray-450 rounded-md border-2 pr-2 pl-8 py-1 border-gray-400" placeholder="Search by token id e.g., 4003"/>
-        </div> */}
-        {/* <select className="bg-gray-450 rounded-md px-2 py-1 border-2 border-gray-400">
-          <option value="SHOW_ALL">Sort by Rarity(asc)</option>
-          <option value="SHOW_REGISTERED">Sort by Token Id(asc)</option>
-          <option value="SHOW_AVAILABLE">Sort by Token Id(desc)</option>
-        </select> */}
+        <Tools {...router.query} setShowMenu={setShowMenu} />
+        <Filters allTraits={all_traits} setShowMenu={setShowMenu} />
         {/* <CollapsibleForm
           heading="Background"
           element={
