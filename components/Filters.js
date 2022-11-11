@@ -10,10 +10,8 @@ export const Filters = (props) => {
   const filters = Object.keys(allTraits);
   const [ isSelected, setIsSelected ] = useState(false)
   const handleChange = (trait, event) => {
-    console.log("event", event.target.checked)
     props.setShowMenu(false);
     traits = traits ? traits : "";
-    console.log(traits.length, "trait filters");
     traits = traits.split(",").filter((val) => val);
     if(event.target.checked) {
       traits.push(trait);
@@ -26,19 +24,19 @@ export const Filters = (props) => {
   return (
     <div className="border-b border-gray-500">
       {filters.map((filter, index) => (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col" key={index}>
           <CollapsibleForm
             heading={filter}
             element={
               <div className="py-4 flex flex-col gap-2">
                 {Object.keys(allTraits[filter]).map((val, i) => (
-                  <div className="flex" >
+                  <div className="flex" key={i}>
                     <input
                       type="checkbox"
                       onChange={() => handleChange(val, event)}
                       id={`back${i}`}
                     />
-                    <label for={`back${i}`} className="flex justify-between w-full pl-1">
+                    <label htmlFor={`back${i}`} className="flex justify-between w-full pl-1">
                       <div>{val}</div>
                       <div>{allTraits[filter][val]}</div>
                     </label>

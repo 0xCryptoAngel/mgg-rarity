@@ -38,7 +38,6 @@ export const getPriceV2 = async (price, firstloop) => {
 `;
 
   const result = await graphQlClient.request(query);
-  console.log("result", result);
 
   let newprice = price;
 
@@ -61,7 +60,6 @@ export const getPriceV2 = async (price, firstloop) => {
     finalList = finalList.concat(resultFromLoop);
   }
   if (firstloop) {
-    console.log("Price update test loop");
     allThePrices = finalList;
   }
 

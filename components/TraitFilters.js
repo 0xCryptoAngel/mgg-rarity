@@ -26,7 +26,7 @@ export const TraitFilters = () => {
         </div>
       }
       {traits.map(trait =>
-        <div className="max-w-max	flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-indigo-700 bg-indigo-200">
+        <div className="max-w-max	flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-indigo-700 bg-indigo-200" key={trait}>
           <span className="text-xs">{trait}</span>
           <span className="cursor-pointer" onClick={() => { handleChange(trait, 'trait') }}>
             <IoIosClose />

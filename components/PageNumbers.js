@@ -26,9 +26,10 @@ export const PageNumbers = (props) => {
           🏠
         </a>
 
-        {start.map((val) => (
+        {start.map((val, i) => (
           <a
             className="bg-gray-200 mr-4 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md"
+            key={i}
             onClick={() =>
               router.push(
                 `?${json2query({ ...router.query, page_id: parseInt(val) })}`
@@ -43,9 +44,10 @@ export const PageNumbers = (props) => {
           ...
         </a>
 
-        {end.map((val) => (
+        {end.map((val, i) => (
           <a
             className="hidden sm:block bg-gray-200 mr-4 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md"
+            key={i}
             onClick={() =>
               router.push(
                 `?${json2query({ ...router.query, page_id: parseInt(val) })}`
@@ -72,9 +74,10 @@ export const PageNumbers = (props) => {
         >
           🏠
         </a>
-        {pageElems.map((val) => (
+        {pageElems.map((val, i) => (
           <a
             className="bg-gray-200 mr-4 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md"
+            key={i}
             onClick={() =>
               router.push(
                 `?${json2query({ ...router.query, page_id: parseInt(val) })}`

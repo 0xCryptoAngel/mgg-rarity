@@ -111,7 +111,6 @@ function NFT({ nft, title }) {
 }
 
 NFT.getInitialProps = async ({ query }) => {
-  console.log(query.id);
   let nft = await getNFT(query.id);
   return { nft, title: config.COLLECTION_TITLE };
 };
