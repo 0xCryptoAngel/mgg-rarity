@@ -99,12 +99,10 @@ Home.getInitialProps = async ({ query }) => {
   });
   let nftss = [];
   if(query?.isListed == "listed") {
-    console.log("1")
     nftss = nfts.filter(nft => nft.price.toString() != "Not for sale");
     console.log("nftss", nftss)
   } 
   if(query?.isListed == "notListed"){
-    console.log("2")
     nftss = nfts.filter(nft => nft.price.toString() === "Not for sale");
   } 
   if(query?.isListed == undefined) {
