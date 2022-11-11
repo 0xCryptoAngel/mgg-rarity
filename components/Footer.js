@@ -4,9 +4,9 @@ import { IoLogoGithub, IoLogoTwitter } from "react-icons/io";
 
 export const Footer = () => {
   return (
-    <div className="flex flex-col border-t-1 border w-full p-4 mt-4 items-center text-xs justify-center">
+    <div className="flex flex-col border-t border w-full p-4 items-center text-xs justify-center bg-gray-450">
       <a
-        className="flex items-center mb-4 text-gray-600 hover:text-gray-900"
+        className="flex items-center mb-4 text-gray-400 hover:text-gray-200"
         href="https://twitter.com/PaiNishant"
         target="_blank"
       >
@@ -16,7 +16,7 @@ export const Footer = () => {
         Twitter
       </a>
       <a
-        className="flex items-center mb-4 text-gray-600 hover:text-gray-900"
+        className="flex items-center mb-4 text-gray-400 hover:text-gray-200"
         href="https://github.com/nishantrpai/rarity-score"
         target="_blank"
       >
@@ -26,7 +26,7 @@ export const Footer = () => {
         Github
       </a>
       <a
-        className="flex items-center mb-4 text-gray-600 hover:text-gray-900"
+        className="flex items-center mb-4 text-gray-400 hover:text-gray-200"
         href="https://etherscan.io/address/0x5a8064f8249d079f02bfb688f4aa86b6b2c65359"
         target="_blank"
       >

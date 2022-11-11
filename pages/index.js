@@ -4,7 +4,6 @@ import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { NFT } from "../components/NFT";
 import { SideBar } from "../components/SideBar";
-import { TestBar } from "../components/TestBar";
 import { PageNumbers } from "../components/PageNumbers";
 import Navbar from "../components/Navbar";
 import { TraitFilters } from "../components/TraitFilters";
@@ -56,15 +55,9 @@ function Home({ title, img, description, nfts, pages, filters }) {
         setShowMenu={setShowMenu}
         showMenu={showMenu}
       />
-      <main className="relative flex justify-center w-full flex-1 h-screen px-36 bg-gray-450">
-        {/* <SideBar
-          all_traits={all_traits}
-          attr_count={attr_count}
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-        /> */}
+      <main className="relative flex justify-center w-full flex-1 h-screen px-36 bg-gray-450 pb-4">
         <div>
-          <TestBar 
+          <SideBar 
             all_traits={all_traits}
             attr_count={attr_count}
             showMenu={showMenu}
