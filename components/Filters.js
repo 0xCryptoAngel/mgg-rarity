@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { json2query } from "../util";
 import CollapsibleForm from "./CollapsibleForm";
@@ -8,14 +8,18 @@ export const Filters = (props) => {
   let { traits = "" } = router.query;
   const { allTraits } = props;
   const filters = Object.keys(allTraits);
-
-  const handleChange = (trait) => {
-    console.log("trait", trait)
+  const [ isSelected, setIsSelected ] = useState(false)
+  const handleChange = (trait, event) => {
+    console.log("event", event.target.checked)
     props.setShowMenu(false);
     traits = traits ? traits : "";
     console.log(traits.length, "trait filters");
     traits = traits.split(",").filter((val) => val);
-    traits.push(trait);
+    if(event.target.checked) {
+      traits.push(trait);
+    } else {
+      traits.splice(0, 1);
+    }
     router.push(`?${json2query({ ...router.query, traits, page_id: 0 })}`);
   };
 
@@ -31,7 +35,7 @@ export const Filters = (props) => {
                   <div className="flex" >
                     <input
                       type="checkbox"
-                      onChange={() => handleChange(val)}
+                      onChange={() => handleChange(val, event)}
                       id={`back${i}`}
                     />
                     <label for={`back${i}`} className="flex justify-between w-full pl-1">
