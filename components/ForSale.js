@@ -7,11 +7,12 @@ import CollapsibleForm from "./CollapsibleForm";
 
 export const ForSale = (props) => {
   const router = useRouter();
-  const handleChange = (value) => {
+  const handleChange = (e) => {
+    console.log("e.target.value", e.target.value)
     router.push(
       `?${json2query({
-        ...router.isSaled,
-        isSaled: value,
+        ...router.isListed,
+        isListed: e.target.value,
       })}`
     );
   };
@@ -26,7 +27,8 @@ export const ForSale = (props) => {
                 type="radio"
                 id="back1"
                 name="drone"
-                checked
+                value="listed"
+                onChange={(e) => handleChange(e)}
               />
               <label htmlFor="back1" className="pl-1">
                 Listed for Sale
@@ -36,6 +38,8 @@ export const ForSale = (props) => {
               <input
                 type="radio"
                 name="drone"
+                value="notListed"
+                onChange={(e) => handleChange(e)}
                 id="back2"
               />
               <label htmlFor="back2" className="pl-1">

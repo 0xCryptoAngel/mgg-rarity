@@ -98,16 +98,18 @@ Home.getInitialProps = async ({ query }) => {
     });
   });
   let nftss = [];
-  if(query?.isSaled) {
+  if(query?.isListed == "listed") {
     console.log("1")
-    // nftss = nfts.filter(nft => nft.price.toString() != "Not for sale");
-  } else if(!query?.isSaled){
+    nftss = nfts.filter(nft => nft.price.toString() != "Not for sale");
+    console.log("nftss", nftss)
+  } 
+  if(query?.isListed == "notListed"){
     console.log("2")
-    // nftss = nfts.filter(nft => nft.price.toString() === "Not for sale");
-  } else if(query?.isSaled == undefined){
-    nftss = nft;
+    nftss = nfts.filter(nft => nft.price.toString() === "Not for sale");
+  } 
+  if(query?.isListed == undefined) {
+    nftss = nfts
   }
-  // console.log("nfts", nftss)
 
   return {
     title: config.COLLECTION_TITLE,
