@@ -8,7 +8,7 @@ const CollapsibleForm = (props) => {
   return (
     <div className="flex flex-col">
       <div
-        className="flex py-3 border-t border-b border-gray-500 cursor-pointer"
+        className="flex py-3 border-t border-gray-500 cursor-pointer"
         onClick={() => setCollapsed(!collapsed)}
       >
         <span>{heading}</span>

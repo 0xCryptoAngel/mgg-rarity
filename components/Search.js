@@ -7,7 +7,6 @@ import { BiSearch } from "react-icons/bi";
 export const Search = (props) => {
   const router = useRouter();
   const { query = "" } = router.query;
-
   const handleChange = (e) => {
     router.push(
       `?${json2query({
@@ -22,7 +21,7 @@ export const Search = (props) => {
       <input 
         type="text" 
         id="search" 
-        className="bg-gray-450 rounded-md border-2 pr-2 pl-8 py-1 border-gray-400" 
+        className="bg-gray-450 rounded-md  pr-2 pl-8 py-1 border-gray-400 border-2" 
         placeholder="Search by token id e.g., 4003"
         onChange={handleChange}/>
     </div>

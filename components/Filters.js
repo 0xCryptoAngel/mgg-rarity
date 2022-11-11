@@ -20,9 +20,9 @@ export const Filters = (props) => {
   };
 
   return (
-    <div>
+    <div className="border-b border-gray-500">
       {filters.map((filter, index) => (
-        <div className="w-full flex flex-col px-2 mt-4">
+        <div className="w-full flex flex-col">
           <CollapsibleForm
             heading={filter}
             element={
