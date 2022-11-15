@@ -16,7 +16,7 @@ export const SideBar = (props) => {
     <div
       className={`absolute sm:relative ${
         !showMenu ? "hidden" : "block"
-      } sm:block text-white	h-50 max-h-screen overflow-auto max-w-full sm:max-w-xs w-full bg-gray-800 p-8`}
+      } sm:block text-white max-h-screen overflow-auto max-w-full sm:max-w-xs w-full bg-gray-800 p-8`}
     >
       <div className="flex flex-col gap-3">
         <div className="py-2">FILTERS</div>

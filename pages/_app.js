@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css'
 import { getPriceV2 } from "../util/requestsGraphQL.js";
+import "./index.css"
 
 function MyApp({ Component, pageProps }) {
   
