@@ -105,7 +105,7 @@ Home.getInitialProps = async ({ query }) => {
   if(query?.isListed == "notListed"){
     nftss = nfts.filter(nft => nft.price.toString() === "Not for sale");
   } 
-  if(query?.isListed == undefined) {
+  if(query?.isListed == undefined || query?.isListed === "all" ) {
     nftss = nfts
   }
 
