@@ -10,14 +10,8 @@ import { TraitFilters } from "../components/TraitFilters";
 import { Footer } from "../components/Footer";
 import { config } from "../config";
 import { getFilters, getNFTs } from "../util/requests";
-import {
-  getPriceV2,
-  allThePrices,
-  firstQuery,
-  changeFirstQueryState,
-} from "../util/requestsGraphQL.js";
 
-function Home({ title, img, description, nftss, pages, filters }) {
+function Home({ title, img, description, nfts, pages, filters }) {
   const router = useRouter();
   const ref = createRef(null);
   const [showMenu, setShowMenu] = useState(false);
@@ -68,7 +62,7 @@ function Home({ title, img, description, nftss, pages, filters }) {
           {showMenu}
           <TraitFilters />
           <div className="flex flex-wrap justify-between sm:justify-start max-w-5xl w-full">
-            {nftss.map((nft, idx) => (
+            {nfts.map((nft, idx) => (
               <NFT {...nft} index={idx} key={idx} />
             ))}
           </div>
@@ -84,36 +78,11 @@ Home.getInitialProps = async ({ query }) => {
   let { nfts = [], pages } = await getNFTs(query);
   let filters = await getFilters(query);
 
-  if (firstQuery) {
-    await getPriceV2(0, true);
-    changeFirstQueryState();
-  }
-  nfts.map(function (nft) {
-    nft.price = "Not for sale";
-    
-    allThePrices.map(function (aPrice) {
-      if (parseInt(aPrice.id, 10) == nft.id) {
-        nft.price = aPrice.price;
-      }
-    });
-  });
-  let nftss = [];
-  if(query?.isListed == "listed") {
-    nftss = nfts.filter(nft => nft.price.toString() != "Not for sale");
-    console.log("nftss", nftss)
-  } 
-  if(query?.isListed == "notListed"){
-    nftss = nfts.filter(nft => nft.price.toString() === "Not for sale");
-  } 
-  if(query?.isListed == undefined || query?.isListed === "all" ) {
-    nftss = nfts
-  }
-
   return {
     title: config.COLLECTION_TITLE,
     description: config.COLLECTION_DESCRIPTION,
     img: config.COLLECTION_IMG_LINK,
-    nftss,
+    nfts,
     pages,
     filters,
   };

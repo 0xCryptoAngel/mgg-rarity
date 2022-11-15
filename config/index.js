@@ -1,7 +1,7 @@
 export const config = {
   env: "prod",
-  LOCAL_API_URL: "localhost:3004",
-  API_URL: "tezos-nft-rarity-gallery.vercel.app",
+  LOCAL_API_URL: "localhost:3000",
+  API_URL: "mgg-rarity-pi.vercel.app",
   COLLECTION_NAME: "Mutant Gecko Gang",
   COLLECTION_TITLE: "Mutant Gecko Gang",
   COLLECTION_DESCRIPTION: "A worldwide pandemic has caused 4444 Mutant Geckos to escape the laboratory! The Mutant Gecko Gang is a limited collection of Mutant Geckos programmatically and randomly generated from hand drawn traits, living on the Tezos blockchain.",

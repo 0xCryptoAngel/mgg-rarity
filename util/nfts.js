@@ -1,6 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 let nfts = require("../data/collection.json");
 const _sortBy = require("lodash/sortBy");
+import {
+  getPriceV2,
+  allThePrices,
+  firstQuery,
+  changeFirstQueryState,
+} from "../util/requestsGraphQL.js";
 
 const get_all_traits = (nft_arr) => {
   let all_traits = {};
@@ -222,6 +228,8 @@ export const getFilters = (traits, atr) => {
   return { all_traits: traits_tmp, attr_count: atr_tmp };
 };
 
+
+
 export const filterNFTQuery = (nft, query) => {
   if (query) {
     if (nft.id.toString().includes(query)) return true;
@@ -230,16 +238,38 @@ export const filterNFTQuery = (nft, query) => {
   return true;
 };
 
-export const getNFTs = (page_id, sort_by, order, traits, attr_count, query) => {
-  let nftcollection = nfts
+export const getNFTs = async (page_id, sort_by, order, traits, attr_count, isListed, query) => {
+  if (firstQuery) {
+    await getPriceV2(0, true);
+    changeFirstQueryState();
+  }
+  nfts.map(function (nft) {
+    nft.price = "Not for sale";
+    allThePrices.map(function (aPrice) {
+      if (parseInt(aPrice.id, 10) == nft.id) {
+        nft.price = aPrice.price;
+      }
+    });
+  });
+  let nftsTemp = [];
+  if(isListed == "listed") {
+    nftsTemp = nfts.filter(nft => nft.price.toString() != "Not for sale");
+  } 
+  if(isListed == "notListed"){
+    nftsTemp = nfts.filter(nft => nft.price.toString() === "Not for sale");
+  } 
+  if(isListed == undefined || isListed === "all" ) {
+    nftsTemp = nfts
+  }
+  let nftcollection = nftsTemp
     .filter((nft) => filterNFTQuery(nft, query))
     .sort((x, y) =>
       order == "asc" ? x[sort_by] - y[sort_by] : y[sort_by] - x[sort_by]
     )
     .filter((nft) => filterNFT(nft, traits))
     .filter((nft) => filterAttrCount(nft, attr_count));
+
   let nftdata = nftcollection.slice(page_id * 54, page_id * 54 + 54);
   let pages = nftcollection.length / 54;
-
   return { nfts: nftdata, pages };
 };

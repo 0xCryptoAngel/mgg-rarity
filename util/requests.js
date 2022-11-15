@@ -19,6 +19,7 @@ export const getNFT = async (id) => {
 
 export const getNFTs = async (query) => {
   const res = await fetch(`${basePath}/api/nfts?${json2query(query)}`);
+
   const data = await res.json();
   return data;
 };
