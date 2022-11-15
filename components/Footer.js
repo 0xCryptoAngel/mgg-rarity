@@ -7,7 +7,7 @@ export const Footer = () => {
     <div className="flex flex-col border-t border w-full p-4 items-center text-xs justify-center bg-gray-450">
       <a
         className="flex items-center mb-4 text-gray-400 hover:text-gray-200"
-        href="https://twitter.com/PaiNishant"
+        href="https://twitter.com/cybergeckogang"
         target="_blank"
       >
         <span className="text-lg mr-1">
@@ -17,7 +17,7 @@ export const Footer = () => {
       </a>
       <a
         className="flex items-center mb-4 text-gray-400 hover:text-gray-200"
-        href="https://github.com/nishantrpai/rarity-score"
+        href="https://github.com/Gecko-Gang"
         target="_blank"
       >
         <span className="text-lg mr-1">
@@ -27,7 +27,7 @@ export const Footer = () => {
       </a>
       <a
         className="flex items-center mb-4 text-gray-400 hover:text-gray-200"
-        href="https://etherscan.io/address/0x5a8064f8249d079f02bfb688f4aa86b6b2c65359"
+        href="https://tzkt.io/tz1c1hnp1jx7Q6nCohvWkhWS7SBxqS8cWHLa/operations/"
         target="_blank"
       >
         <span className="text-lg mr-1">
