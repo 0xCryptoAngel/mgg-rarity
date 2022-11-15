@@ -4,7 +4,7 @@ import { IoMdClose } from "react-icons/io";
 
 function Navbar({ title, menu, showMenu, setShowMenu }) {
   return (
-    <div className="bg-black w-full flex justify-between items-center py-4 px-36">
+    <div className="bg-black w-full flex justify-between items-center py-4 px-24">
       <h1 className="text-lg text-white font-medium">{title}</h1>
       {menu && (
         <div
