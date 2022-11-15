@@ -8,7 +8,7 @@ function Navbar({ title, menu, showMenu, setShowMenu }) {
       <h1 className="text-lg text-white font-medium">{title}</h1>
       {menu && (
         <div
-          className="md:hidden text-md text-white"
+          className="sm:hidden text-md text-white"
           onClick={() => setShowMenu(!showMenu)}
         >
           {showMenu ? <IoMdClose /> : <GiHamburgerMenu />}

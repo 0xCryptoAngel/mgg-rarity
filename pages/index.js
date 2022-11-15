@@ -55,7 +55,7 @@ function Home({ title, img, description, nftss, pages, filters }) {
         setShowMenu={setShowMenu}
         showMenu={showMenu}
       />
-      <main className="relative flex justify-center w-full flex-1 h-screen px-36 bg-gray-450 pb-4">
+      <main className="relative flex justify-center w-full flex-1 h-screen bg-gray-450 pb-4">
         <div>
           <SideBar 
             all_traits={all_traits}
